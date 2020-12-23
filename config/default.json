@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "awesome-secret-jwt",
+  "mongoUri": "mongodb+srv://zulgarak:Wb0B67kW3G6gpxB3@cluster0.dzb5n.mongodb.net/app?retryWrites=true&w=majority"
+}

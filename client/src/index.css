@@ -1,0 +1,14 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.df {
+    display: flex;
+    /*position: relative;*/
+    /*margin-bottom: auto;*/
+}
+.cursor-pointer {
+    cursor: pointer;
+}
