@@ -16,10 +16,12 @@ export const useRoutes = (isAuthenticated) => {
   }
   return (
     <Switch>
-      <Route path="/" exact>
-        <AuthPage />
-      </Route>
-      <Redirect to="/" />
+      {/*<Route path="/" exact>*/}
+        {/*<AuthPage />*/}
+      {/*</Route>*/}
+      <Route path="/login" component={AuthPage} />
+      <Route path="/register" component={AuthPage} />
+      <Redirect to="/login" />
     </Switch>
   )
 }

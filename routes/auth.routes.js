@@ -9,6 +9,7 @@ const router = Router()
 router.post(
   '/register',
   [
+    check('name', 'Invalid name, min length 1').exists(),
     check('email', 'Invalid E-mail').isEmail(),
     check('password', 'Invalid password, min length 1').exists()
   ],
@@ -21,7 +22,7 @@ router.post(
         message: 'Invalid Data'
       })
     }
-    const {email, password} = req.body
+    const {name, email, password} = req.body
 
     const candidate = await User.findOne({email})
 
@@ -30,7 +31,7 @@ router.post(
     }
 
     const hashedPassword = await bcrypt.hash(password, 12)
-    const user = new User({email, password: hashedPassword })
+    const user = new User({name, email, password: hashedPassword })
 
     await user.save()
     res.status(201).json({message: 'User created'})
