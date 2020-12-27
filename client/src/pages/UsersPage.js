@@ -1,15 +1,12 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
-
 import {UsersList} from '../components/UsersList'
 
 export const UsersPage = () => {
 
   const [users, setUsers] = useState([])
   const {request} = useHttp()
-  // console.log(request);
-
   const {token} = useContext(AuthContext)
 
   const fetchUsers = useCallback(async () => {
@@ -24,7 +21,6 @@ export const UsersPage = () => {
   useEffect(() => {
     fetchUsers()
   }, [fetchUsers])
-
 
   return (
     <>

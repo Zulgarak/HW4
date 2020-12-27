@@ -14,7 +14,6 @@ router.post(
   ],
   async (req, res) => {
   try {
-    // console.log('req.body', req.body)
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
       return res.status(400).json({
@@ -49,7 +48,6 @@ router.post('/login',
   async (req, res) => {
   try {
     const errors = validationResult(req)
-    // console.log('errors', errors);
     if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
@@ -58,16 +56,13 @@ router.post('/login',
     }
 
     const {email, password, dateLogin} = req.body
-
-    //good worked
-    // const user = await User.findOne({email})
     const user = await User.findOne({email})
     await User.findOneAndUpdate({email}, {$set: {dateLogin: dateLogin}})
 
     if(!user) {
       return res.status(400).json({message: 'User not found'})
     }
-    ///BLOCKED
+
     if(!user.status) {
       return res.status(400).json({message: 'User has been BLOCKED'})
     }
@@ -82,12 +77,10 @@ router.post('/login',
       config.get('jwtSecret'),
       {expiresIn: '1h'}
       )
-    // console.log('token',token);
 
     res.json({token, userId: user.id })
 
   } catch (e) {
-    // console.log(e);
     res.status(500).json({message: 'Internal Server Error'})
   }
 

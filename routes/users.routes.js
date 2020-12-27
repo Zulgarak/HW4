@@ -19,7 +19,6 @@ router.put('/', async (req, res) => {
 
   if(Object.keys(obj).includes('_id')){
     const {status,_id} = req.body
-    // try {
     const candidate = await User.findOneAndUpdate({_id: req.body._id}, {$set: {status: status}})
     res.json({ success: true })
 
@@ -28,7 +27,6 @@ router.put('/', async (req, res) => {
     const arrayValues = Object.values(arr)
     arrayValues.forEach( async function (item) {
       const {status,_id} = item
-      // try {
       const candidate = await User.findOneAndUpdate({_id: _id}, {$set: {status: status}})
       res.json({ success: true })
     })
@@ -41,7 +39,6 @@ router.delete('/', async (req, res) => {
 
   if(Object.keys(obj).includes('_id')){
     const {_id} = req.body
-    // try {
     const candidate = await User.findOneAndUpdate({_id:_id})
     res.json({ success: true })
 
@@ -50,19 +47,14 @@ router.delete('/', async (req, res) => {
     const arrayValues = Object.values(arr)
     arrayValues.forEach( async function (item) {
       const {_id} = item
-      // try {
       const candidate = await User.findOneAndDelete({_id: _id})
       res.json({ success: true })
     })
   }
 
   const {_id} = req.body
-  // try {
   const candidate = await User.findOneAndDelete({_id: req.body._id})
   res.json({ success: true })
 })
-
-
-
 
 module.exports = router

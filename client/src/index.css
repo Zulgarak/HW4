@@ -6,9 +6,8 @@
 
 .df {
     display: flex;
-    /*position: relative;*/
-    /*margin-bottom: auto;*/
 }
+
 .cursor-pointer {
     cursor: pointer;
 }

@@ -1,8 +1,5 @@
 import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
-// import {LinksPage} from "./pages/LinksPage";
-// import {DetailPage} from "./pages/DetailPage";
-// import {CreatePage} from "./pages/CreatePage";
 import {AuthPage} from "./pages/AuthPage";
 import {UsersPage} from "./pages/UsersPage";
 
